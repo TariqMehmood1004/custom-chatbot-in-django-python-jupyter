@@ -1,0 +1,219 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - Emergi Mentors</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSDxAVDxAVFxIVFRUVFRcVFRUVFRcWFxUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGy0lHSU3MC0tLSstMi0tLSstLS0rLS8tLS0uLS0tLS0tLS0tLS0uLS0tLS0tLS0tLS0tLS0tK//AABEIAOEA4QMBEQACEQEDEQH/xAAcAAEBAAIDAQEAAAAAAAAAAAAAAQIFBAYHAwj/xABJEAACAQIBBAsLDAECBwAAAAAAAQIDEQQFEiExBgcTFkFRU2GRktEUIjRScZOhorKz0hUkMjNCVGJyc3SBsYIX4SU1Q2OjwfD/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAQIDBAUG/8QAMREBAAECAwUGBgIDAQAAAAAAAAECAwQRMRQVUVKhEhMhQZHRBTIzceHwYYE0QrEj/9oADAMBAAIRAxEAPwD3BsCJAZAAAACWAoAABi2BUgKAAAYsCpAUABGwIBkgAACMCJAZAAAEsBQAACXAoAAAAjAJAUAAAAAAACMCWAySAAAAAAAAAAAAABi2ASAyAAAAAAAAXAxAyAAAAAAAAARsAmBQAAAAAAAMWwCQGQAABi2BUBQAADECpAUABGwImBkAAARsCJAZAAAEuBQAACMCJAZAAAGLYFSAoADpuyDbHwmGquio1MRUi7T3JRzYNa4uUmry5le3DYvTbmVJriGWT9sbJ9W2dVlh5Pgqxat/lG8fSJt1EVw7PgsbSqrOo1YVY8cJKS9DKzGS+bkkABGwIgMkgAACNgRAZAAAGLYBIDIAAAAAAADFgVICgAONlKq4Uak4/SjCcl5VFtCB+X6Mm9Ld23dt623pbZ1uZ9GwhaU3FqUG4SWqUW015GtIHYcm7OcoUbKOKlUivs1bVfWl33pKzRTK0VTDtWTdtyorLE4WMk/tU5OOrXaMr36Sk2uC8XOLs+TtsjJ9WynUlh5PgqwsuvG8V/LKTbqWiuHacDj6NVZ1CrCtHjhNSXoZWYmFs83JISAAMbAZAAAGLYBIDIAAAiAoAAAAlgKAAMDhZZfzet+lV9hkxqiX5iw+o6nO+zi7Z1nm6r20X4rhDECSWh21ge7ZZrYHEZKlNOmsOqTdPUnSnGPeRivszTsrfxwnPGcVN5yml4UdDBlTm4vOi3GS1OLaa8jQHYMm7OMoUbZmKnOK+zVtVT5ry75fw0VmimVoqmHr2wXZZHH0pOUVTr02lUitXfXzZxv9l2loepp+V4109mW1NWbsxRYAAAIwIkBkAAAAAAABLgUAAAMDEDiZYXzet+lV9hkxqiX5iw+o6nO9p2mIp4Kqmrrd5aHp/wCnSMLurW3o7PjtiuBq/W4Oi2/tKCjLrRsysVTHmvNMS0GN2rMBP6t1qH5amcv/ACKT9JaLkq93DQY3agnroYuMuapTcfWi3/RaLqvdtBjdrbKNP6NKFZf9upH+p5rLRcpV7FTr+NyLiqN92w1amlrcqclHrWs+ktExKuUuDHSSh6ZtJ/W4pfgo+1UMrukNbfm9ZMWoAAAAAAABi2BAMwAGLYFSA6/lPZMqc3CnTz83Q23ZX4UlY8zEfEYt1zTTGeTrt4XtU5zLh77p8jHrPsMN61csev4abHHE33T5GPWfYN61cvX8GxxxbDI+yBVp7nOGZJ3zbO6dta5nr6Dqw2Oi7V2KoynyY3cP2Izic3NyzlSGGpbpNZzuoxitGdJ30X4NTOq/ei1T2pY26JrnKHT8o7NpypVI7hFZ0Jr6b0Xi1xHFR8QqmqI7PVvVhoiJ8XitDUe88x7TtLv5nV/cS93SMLurW3o32U9kcqVWVNUlLNtpzra0nqtznj4j4hNq5NHZzy/l328NFdMVZuNvulyK677DHetXJ1/C+xxxN90uRXXfYN61cnX8GxxxN90uRXXfYN61cnX8GxxxN90uRj132E71q5Ov4Njji4WKyvRqO9TA0Kj45KMn0uJO9q4/16/hGxRPn0ZYLLdKi26GCo0XKybhaN7ar2jp1sifi1c/69fwmMFTHn0cvfdLkV132Eb1q5Ov4Njjib7pciuu+wb1q5Ov4Njjib7pciuu+wnetXJ1/BskcRbLpcguu/hG9auTr+DY44tzknLVOvoV4T15r/tPhO7DYyi94R4Twc92xVb8fJszrYgGLYFSAoADFsCpAUDp2V9j1bdZSpRz4SblrSabd2nd8Z4WJwF3vJqojOJ8XoWsRR2YipwvkDE8k+tHtMNhxHL1hptFviLIGJ5J9aPaTGBv8vWDaLfFtNj+QqsaqqVlmKN7K6bbaa4ODSzrweCuU3Irr8MmF+/TNPZpbHZTkmWIoqMGlOMs6N9Cehpq/Br9B34qxN2jKNYc9m52KvF0PHbGsXGnUbotJQm286GpRfOebbwl6K4ns+f8Omq9R2Z8XleHV0fTPIe07TK+Z1f15e7pmF3Vrb0XZH4TU8sfZifLY7/Iq/fKHsYf6cNacrYAAHzEgQAAASAmQIH0w1dwnGcdDi0+jgLUVzRVFceSKqYqjKXpiZ9a8ZGwKkBQAGMgKkBQAAAAAAAOHlnwet+lV9hkwS/MlB2jznTDml7PtLeB1f3Evd0jG7q1t6OHsryxh4YurCpiKcJpxvGU0mrwi9K8jR85i8PdqvVTTTMx9v4erZu0RRETMNT8vYX71S85HtObZb/JPo1763zQfL2F+9UvOR7Rst/kn0O+t80Hy9hfvVLzke0bLf5J9DvrfNB8vYT71R85HtGy3+SfQ763zQfL2F+9UvOR7Rst/kn0O+t80Hy9hfvVHzke0bLf5J9DvrfNCrLmF+80uvHtJjCXuSfQ763zQjy9hfvVHzke0Thb/JPojvrfNB8vYX71R85HtI2W/wAk+ie+t80Hy9hfvVLzke0bLf5J9DvrfNCSy/hLP51R85HtE4W/l8k+h31vmh7DHUvIj6iHkqkBQAAAAAAAMbgaTZTstwuAjGWKm86d1CEI505W+k0uBK60tpaVxgdY/wBY8n8nifNw+MB/rHk/k8T5uHxgP9Y8n8nifNw+MD4ZQ23MBUpVKcYYjOnCcVenC15RaV+/5yY1JeQ0NR1Q5pe07S3gdX9xL3dIwu6tbejyzbS/5rivzUvc0zNo6skAkgIAAAALncAEAAAMMTHvJfll/QH6+pal5EBkAAAAAABcDECpAeP7eGQcROtSxVKnOtRVPcpZkXN05KUpJuK0pPO16u9060B5b8nV+Qq+bn2AFk6vyFXzc+wCyybW4KFXzU+wCLJ9ZaXQqpce5z7CY1RLlUdR1Q55e07S3gdX9xL3dIwu6tbejy3bRX/FcV+al7mmZtHWJStoQHzAAAMlHhAxAAAAGahxgfLFy72Xkl/QH69pal5EBkAAAAAADECpAUABGwIgMgOHlrwet+lV9hkxqiX5hw+o6nO9p2l38zq/uJe7pGF3Vrb0aDZtsTpVsbXqyqVIym4NpZtlanBaLrmPGxHxCu1cmiIjwehaw1NdMVTLRbw6HLVfU+Ew3rc5Y6+6+x08ZN4dDlqvqfCN63OWOvubHTxk3h0OWq+p8I3rc5Y6+5sdPGRbAqHLVfU+Enelzljr7myU8ZV7BaHLVfU+Ejetzljr7myU8ZTeHQ5ar6nwjetzljr7mx08ZN4dDlqvqfCN63OWOvubHTxk3h0OWq+p8I3rc5Y6+5sdPGRbA6HLVfU+Enelzljr7myU8ZHsEoctV9T4SN63OWOvubHTxljU2A0Gmt2q6U19j4RPxW5l8sdfdOx08Ze+wWheRHuPPZNgYsCoCgAI0ASAoHFxeUqNJpVasKbepSkk7cdjOu7RR4VTELU0VVaQ4/y/hfvFPrIptNrmhbuq+DnQkmk0009Ka0prjubxOejNhicZTp23SpGF9V2lczuXqLfzzELU0VVaQ+Hyzh+Xh0me12OePVfubnCXDyvleg6FZKtBt06ttP4WTTirMzERVCJs3MtH5vw+o9JxPatpjwOr+vL3dMwu6tbejs2O2OU6tSVSU5pytoWbbQkuFcx5l74fRdrmuZnx+3s7KMTVRT2Yh8N6VLlKnq/CZbqt809PZfa6uEG9KlylT1fhG6rfNPT2Nrq4QxexOlylT1ewndVvmnp7G11cIXelS5Sp6vwjddvmnp7I2urhC70qXKVPV+EjdVvmnp7J2urhDr2WsDGjVdOLcklF3dr6fIeZirMWbnYh12a5rpzlu8HsXpTpwm6k05RjJ2zbXaT0aD0LXw23XRFU1T4xE+Xs5q8VVTVMZQ+r2J0uUqer8Jpuu3zT09ldrq4Qu9KlylT1fhG67fNPT2RtdXCHBy1sfp0aTqRnOTTirO1tLtwI5sVgaLNua4mens1s4iqurszDrkjy50dj1COpH18PEGSKkBQAETAoAAB5TshU+6a26Xzs+Vr+LfvLc2bY+fxHa72rtfseT0bWXYjJr7mK70TYKp9zd/fNc5OF/F0aubOzj2cB2u68f6cWIy7fg0myZS7onn82b+Wytb0/zc8jH9rv6u1/X2duHy7uMmrORs+ON+rn+Sfss0tfUp+8f9Vr+WXltDUfbPnntO0t4HV/cS93SMLurW3o9AM2gBGBEgMgAHRtlnhD/LA+e+I/Xn7Q9LC/TdvyX9TS/Tp+yj28P9Kn7R/xwXfnn7y5RsoAafZZ4NLyw9pHD8R+hP8AX/XRhfqQ6LLUfOzo9N6dHUj7CHiM0gKAAARICgAJcD4YnBUqlt1pQqW1Z0VK3kuUqt0V/NEStFUxpL4rI2G+70vNx7Cmz2uWPRPeV8Zc2KtoWhGyj518NCf1kIztqzknbpKV26K/miJ+61NU06S+DyZQ5Cn1I9hnstnkj0hbva+M+rh5XybRVCs1RppqlUt3kdHePmJjDWYn5Y9IRN2vLWX5tw+o9FxvatpbwOr+4l7ukYXdWtvRlsjk+6amnhj7MT5fGzPf1fvlD2MP9OGtznxs5c54tsjOfGxnPEyM58bGc8TIznxsZzxMjOfGxnPEPKPuCk+NjOQznxsZzxMjOfGxnPEyHJ8YzkYyKzol6hDUv4Pr4eIyJACNgTOAyAARsCAZAAAEbAiQHEyz4PW/Sq+wyY1RL8xYfUdTne1bS3gdX9xL3dIwu6tbei7I/Canlj7MT5fG/wCRV++UPYsfThrTkbAAAAJgCJAAAADISRE6Jeow1I+vh4ikiMCAM0DICNgQDIDz7LuKnOtPPbtGUoxXAknZWXpPmcXcqru1drynJ6tmmKaIya85WwTkhvtiWJmq25ptwak2taTWlNcXF/J6Xw65VF3seTlxVMTT2vNzdneMqU6MI024qcmpNaHZK+bfn/8AR34+5VTRER5ufD0xNXi86xX0J/ll/TPKtfPT94ddfyy6DR1H1zw3tG0x4HV/cS93SMLurW3oy2R+E1PLH2Yny+On/wB6v3yh7GH+nDWnI2AABEwFyMwAAABIEDl5LwLrVFBLRocnxR4WbYezN65FMf39lLlcUU5vRj6l5CNgQCpAUCMDGwGYADW47IlGrLPnFqXC4u1/Kct7B2rtXaqjxbUX66Iyhx96+H4p9Yy3bY/n1W2q4b18PxT6w3bY/n1NquObk7JdKjfc42b1tu7txX4jos4a3Z+SGdy7VXq+uOwVOtBwqxz4vg5+Bp8DNK7dNcdmqPBWmqaZzh1zKuxHDRo1ZJTuqdRrv+FRZz04G1ExPj6tJv1zDwLDR0dB6zge07TLvg6v68vd0jC7q1t6O2YvIVCpNznFuUrX75rUrav4OC5grNyqaqo8Z/l1U366Yyh8d7OG8WXXZTd1jhPrK21XDezhvFl12N3WOE+sm1XEnscwqV2nFcbm0v7G7rHCfWTarjT42tkil9Ziqaa+yq2dLqxbZbdlmfKfWVdrrjzhosTsryNF96q9bnhGS944sndNnh1Rt1f7Da7F8Vk/HSqRw9OtF01Fy3R20SbStaT8VkVfC7NOsdZTTjK5dh3s4bxZddld3WOE+srbVcTe1h/Fl1pDd1jhPrJtNxd7OH8WXXY3dY4T6ybVcVbGcN4suvIbuscOsm1XGxwmEhTWbTgoLm4fK9bOq3aotxlRGTGquqqc5l9zRVjYCpAUAAAAAAEbAICgAAHDy14PW/Sq+wyY1RL8xUJd6jqc70ra52X4TBYWpDETlukq0pqMYSk3FwppO/0dcXwmVdEzPgvRVEQ2uN23aK+owtSfPOUaa9XOIi1K3eNDjdtjGS+qpUaK51KcultL0FotQrNyXBWW8t4rRCeJmnq3KnucV/nCKsvKycqIRnVLTbIMmY2k493wqpzu4upPdL2199nNX0rRrLRMTorMT5tQShQPS9pD63Ffko+1UMrukNbesvWWjFqJAUAAAAAAAABrMo5QlTrUqaUc2o7XedfnSsranf8Aj+UGzAARsCJAZAAAEuBxMteD1v0qvsMmNUS/MOH1HU531CAD1nacyXQdGpXcYzxG6ODbSbpwUYtJJ6r3bvw2twGN2ZzybW4jLN3jKGX8JQ+vxVKm19lzWd1VpfQZxTM6LzMQ8q2ztl9HGbnRwt506cnOVRpxzpWcUop6bJN3b5ja3TMeMsq6onR0I0Zudk7JGIr+D4epW54Qbj/M/or+WRMxGqYiZez7W2xOeCpTlXt3RWzc6Kd1CMb5sb8L76TbWjVxXMK6s21FOTuJRcAARsCAZAAAAABoMt+FYfyrhXjKzs3dtadK1Ju907Ab8CNgRAZAAAGLYBIDj5Vg5UKsYq7dOokuNuLSEEvy/h9R1uZ9QhUuF6gNhkvJmLreC0a1RSVm4KWa1xSn9G3lZEzEapiJnR2XJm1bjp23TcsNH8Us6XVhdelFZuQtFuXacm7UuHjZ4jEVK74oJUov2pelFJuz5LxbjzdqybsRwNCzpYSnnLVKS3SXWndlJqmVopiG5XNoRVZkgKAAjYEAqQFAARsBECgaDLi+c0HZaHDTourzSt9B6/KtTtwgb8DGwGQAABi2ASAyAAecbIdqunWrSq4Wv3OptylTlDPipPS3C0k4q/Bp5rajWm5lqzqt56Msm7U+GhZ4ivUrvhUUqcH/ABpl6RN2fIi3DtWTdieBoWdLC01JapSjnyX+U7tFJqmVopiG7RVYAAYgVICgAI2BiBkkBQAEbAiQGQADS5WqU1iKF3DddO5pympd9ol3sdDWj7XEwN0AAAfOdZLXfoYHzli48/QBisXHifoAvdi4mBO7VxMB3avF9IE7t/D6QHdn4fSA7t/D6QHdv4fSA7t/D6QMXjfw+n/YCrGfh9IF7t/D6QL3b+H0gO7VxMB3YuJgVYyPE/QBVi48/QBnGunx9DA+jYESAyAAANBlqv8AOcNBeNd+RyilfjV15E83mTDfgAAAABLATMXEgGYuJdAGLguJdAF3KPiroAblHxV0ANyj4q6AG4x8VdADcY+KugCbjHxV0AXco+KugBuUfFXQAdOPiroAKC4l0AXMXEugC2AoACWAoAABLgabLOJnGvhoxcoxlJ5zUoqMtSzWtb1rptw6A3QADFsCoCgAAGLYFSAoAAwImBQAACMDEDJICgAJcCgAAADFsCWA1mU8BOdehUilmQffPOalbT9nVa9tOuza8obYDFsAkBkAAAYtgVICgAAGIFSAoACNgQDJAAAEbAiQGQAABGwIkBkAAMDFAZAAAEYGMf8A70gZgAAEYEiBkAAAYsCoCgAAGLAqAoAAwMf9wMgAH//Z">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+
+    <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .remove-scroll::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .remove-scroll {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-slate-900 relative h-screen flex flex-col justify-center items-center">
+    {% block content %}{% endblock %}
+
+    {% block scripts %}{% endblock %}
+
+
+    <!-- component -->
+    <button id="chatbot-icon" class="btn absolute right-5 bottom-6"
+    type="button" aria-haspopup="dialog" aria-expanded="false" data-state="closed">
+            <i class="lni lni-discord-chat text-3xl text-slate-900"></i>
+          Chat
+    </button>
+
+
+  <div id="chatroom" style="box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);"
+    class="fixed hidden transition-all duration-300 bottom-[calc(4rem+1.5rem)] right-0 mr-4 bg-white p-6 rounded-lg border border-[#e5e7eb] w-[440px] h-[634px] overflow-y-scroll remove-scroll">
+
+    <!-- Heading -->
+    <div class="flex flex-col space-y-1.5 pb-6">
+      <h2 class="font-semibold text-lg tracking-tight">Chatbot</h2>
+      <p class="text-sm text-[#6b7280] leading-3">Powered by Emergi Mentors</p>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="pr-4 h-[474px]" style="min-width: 100%; display: table;">
+      <!-- Chat Message AI -->
+      <div class="flex gap-3 my-4 text-gray-600 text-sm flex-1"><span
+          class="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8">
+          <div class="rounded-full bg-gray-100 border p-1"><svg stroke="none" fill="black" stroke-width="1.5"
+              viewBox="0 0 24 24" aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z">
+              </path>
+            </svg></div>
+        </span>
+        <p class="leading-relaxed"><span class="block font-bold text-gray-700">AI </span>Hi, how can I help you today?
+        </p>
+      </div>
+
+      <!--  User Chat Message -->
+      <div class="flex gap-3 my-4 text-gray-600 text-sm flex-1"><span
+          class="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8">
+          <div class="rounded-full bg-gray-100 border p-1"><svg stroke="none" fill="black" stroke-width="0"
+              viewBox="0 0 16 16" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z">
+              </path>
+            </svg></div>
+        </span>
+        <p class="leading-relaxed"><span class="block font-bold text-gray-700">You </span>fewafef</p>
+      </div>
+      <!-- Ai Chat Message  -->
+      <div class="flex gap-3 my-4 text-gray-600 text-sm flex-1"><span
+          class="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8">
+          <div class="rounded-full bg-gray-100 border p-1"><svg stroke="none" fill="black" stroke-width="1.5"
+              viewBox="0 0 24 24" aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z">
+              </path>
+            </svg></div>
+        </span>
+        <p class="leading-relaxed"><span class="block font-bold text-gray-700">AI </span>Sorry, I couldn't find any
+          information in the documentation about that. Expect answer to be less accurateI could not find the answer to
+          this in the verified sources.</p>
+      </div>
+    </div>
+
+      <!-- Input box  -->
+      <div class="sticky bottom-0 left-0 flex items-center pt-0 w-full bg-slate-800 py-2 px-4 rounded-full">
+          <form class="flex items-center justify-center w-full space-x-2">
+            <input
+              class="flex h-12 w-full bg-transparent rounded-md border-none px-3 py-2 text-sm placeholder-white outline-none text-slate-200"
+              placeholder="Type your message" value="">
+
+              <button type="submit"
+                class="py-2 px-4 bg-slate-700 text-white font-semibold rounded-md hover:bg-gray-900 transition duration-300">
+                Send
+            </button>
+          </form>
+        </div>
+
+  </div>
+
+
+
+    <script>
+
+    const chatbot_icon = document.getElementById("chatbot-icon");
+    const chatroom = document.getElementById("chatroom");
+
+    chatbot_icon.onclick = () => {
+        chatroom.classList.toggle("hidden");
+    }
+
+
+        function showAnswer(question) {
+            // Get the CSRF token from the page
+            var csrfToken = '{{ csrf_token }}';
+
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = "{% url 'index' %}";  // Adjust the URL if needed
+
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'question';
+            input.value = question;
+            form.appendChild(input);
+
+            var roleInput = document.createElement('input');
+            roleInput.type = 'hidden';
+            roleInput.name = 'role';
+            roleInput.value = 'Mentees';  // Ensure the role is set as Mentees
+            form.appendChild(roleInput);
+
+            // CSRF Token input field
+            var csrfInput = document.createElement('input');
+            csrfInput.type = 'hidden';
+            csrfInput.name = 'csrfmiddlewaretoken';
+            csrfInput.value = csrfToken;
+            form.appendChild(csrfInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+
+    <script>
+  // Elements for toggling chat and handling messages
+  const chatbotIcon = document.getElementById('chatbot-icon');
+  const chatroom = document.getElementById('chatroom');
+  const chatInput = chatroom.querySelector('input');
+  const sendButton = chatroom.querySelector('button');
+  const chatContainer = chatroom.querySelector('.pr-4');
+
+  // Toggle chatroom visibility
+  chatbotIcon.addEventListener('click', () => {
+    const isOpen = chatroom.style.bottom === 'calc(4rem + 1.5rem)';
+    chatroom.style.bottom = isOpen ? '-634px' : 'calc(4rem + 1.5rem)';
+    chatbotIcon.setAttribute('aria-expanded', !isOpen);
+  });
+
+  // Function to create new message bubble in chat
+  function createMessage(content, sender = 'AI') {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('flex', 'gap-3', 'my-4', 'text-gray-600', 'text-sm', 'flex-1');
+
+    const avatarDiv = document.createElement('span');
+    avatarDiv.classList.add('relative', 'flex', 'shrink-0', 'overflow-hidden', 'rounded-full', 'w-8', 'h-8');
+    const avatarImg = document.createElement('div');
+    avatarImg.classList.add('rounded-full', 'bg-gray-100', 'border', 'p-1');
+    avatarImg.innerHTML = sender === 'AI' ?
+                          `<svg stroke="none" fill="black" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"></path>
+                          </svg>` :
+                          `<svg stroke="none" fill="black" stroke-width="0" viewBox="0 0 16 16" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"></path>
+                          </svg>`;
+    avatarDiv.appendChild(avatarImg);
+
+    const messageContent = document.createElement('p');
+    messageContent.classList.add('leading-relaxed');
+    messageContent.innerHTML = `<span class="block font-bold text-gray-700">${sender}</span> ${content}`;
+    messageDiv.appendChild(avatarDiv);
+    messageDiv.appendChild(messageContent);
+
+    chatContainer.appendChild(messageDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to the bottom
+  }
+
+  // Handle sending message
+  sendButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const userMessage = chatInput.value.trim();
+    if (userMessage) {
+      createMessage(userMessage, 'You'); // Display user message
+      chatInput.value = ''; // Clear input field
+
+      // Simulate AI response (Replace with actual logic)
+      setTimeout(() => {
+        createMessage("Sorry, I couldn't find any information in the documentation about that.", 'AI'); // AI response
+      }, 1000);
+    }
+  });
+</script>
+
+</body>
+</html>
